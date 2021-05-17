@@ -24,5 +24,8 @@
     "@babel/register": "^7.13.16",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
