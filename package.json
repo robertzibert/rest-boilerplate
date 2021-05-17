@@ -1,0 +1,28 @@
+{
+  "name": "rest-boilerplate",
+  "version": "1.0.0",
+  "description": "Simple express & mongo boilerplate for personal projects",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertzibert/rest-boilerplate.git"
+  },
+  "author": "Robert Zibert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robertzibert/rest-boilerplate/issues"
+  },
+  "homepage": "https://github.com/robertzibert/rest-boilerplate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/node": "^7.14.2",
+    "@babel/register": "^7.13.16",
+    "eslint": "^7.26.0",
+    "eslint-config-standard": "^16.0.2"
+  }
+}
