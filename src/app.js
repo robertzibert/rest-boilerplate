@@ -1,6 +1,11 @@
 import express from 'express'
 import cors from 'cors'
 
+import { errorConverter, errorHandler } from './middlewares/error'
+import httpStatus from 'http-status'
+import ApiError from './utils/ApiError'
+import catchAsync from './utils/catchAsync'
+
 import createPoll from './services/createPoll'
 import getPolls from './services/getPolls'
 import getPoll from './services/getPoll'
@@ -24,10 +29,13 @@ app.get('/polls', async function (req, res, next) {
   res.send(await getPolls())
 })
 
-app.post('/poll/new', function (req, res, next) {
-  createPoll(req.body)
-  res.send('hello')
-})
+app.post(
+  '/poll/new',
+  catchAsync(async function (req, res, next) {
+    const newPoll = await createPoll(req.body)
+    res.send(newPoll)
+  })
+)
 
 app.get('/poll/:_id', async function (req, res, next) {
   res.send(await getPoll(req.params))
@@ -37,4 +45,14 @@ app.post('/poll/:_id', async function (req, res, next) {
   res.send(await votePoll(req.params, req.body))
 })
 
+// send back a 404 error for any unknown api request
+app.use((req, res, next) => {
+  next(new ApiError(httpStatus.NOT_FOUND, 'Not found'))
+})
+
+// convert error to ApiError, if needed
+app.use(errorConverter)
+
+// handle error
+app.use(errorHandler)
 export default app
