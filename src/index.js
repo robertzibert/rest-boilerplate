@@ -16,7 +16,7 @@ mongoose
   })
   .then(() => {
     console.info('Connected to MongoDB')
-    server.listen(80, () => {
+    server.listen(process.env.port || 3000, () => {
       console.info('Listening to port 80')
     })
 
