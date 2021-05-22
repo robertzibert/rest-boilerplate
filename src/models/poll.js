@@ -33,7 +33,7 @@ const pollSchema = mongoose.Schema({
       type: Number
     }
   },
-  fouthOption: {
+  fourthOption: {
     title: {
       type: String
     },
