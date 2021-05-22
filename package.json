@@ -4,7 +4,7 @@
   "description": "Simple express & mongo boilerplate for personal projects",
   "main": "src/index.js",
   "scripts": {
-    "start": "ls && node dist/index",
+    "start": "node dist/index.js",
     "watch": "./node_modules/.bin/nodemon  ./node_modules/.bin/babel-node src",
     "build": "babel src -d dist"
   },

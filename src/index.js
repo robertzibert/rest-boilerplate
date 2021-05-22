@@ -16,7 +16,7 @@ mongoose
   })
   .then(() => {
     console.info('Connected to MongoDB')
-    const port = process.env.port || 3000
+    const port = process.env.PORT || 3000
     server.listen(port, () => {
       console.info(`Listening to port ${port}`)
     })
